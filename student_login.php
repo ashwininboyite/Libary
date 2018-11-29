@@ -1,4 +1,7 @@
-
+<?php
+    session_start();
+    require 'config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,11 +43,15 @@
       
       <ul class="nav navbar-nav navbar-right">
         <li><a href="student_login.html" class="active">Home</a></li>
-         <li><a href="booked.html" class="page-scroll">Booked</a></li>
-		<li><a href="renewal.html" class="page-scroll">Renewal</a></li>
-		<li><a href="balance.html" class="page-scroll">Balance</a></li>
-		<li><a href="index.html" class="page-scroll">Logout</a></li>
-        
+         <li><a href="booked.php" class="page-scroll">MyBooks</a></li>
+		<li><a href="renewal.php" class="page-scroll">Renewal</a></li>
+		<li><a href="balance.php" class="page-scroll">Balance</a></li>
+        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $_SESSION['stu_username']?><b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="index.html"><?php session_destroy(); ?><i class="glyphicon glyphicon-log-out pull-right" name="logout"></i> Logout</a></li>
+                
+            </ul>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -103,7 +110,7 @@
 		</div>
 		<div class="banner-info-w3layouts">
 			<div class="jumbotron text-center">
-				<h1>VOYAGER</h1>
+				<h1>LIBRARY</h1>
 				<p>The world is a book, and those who do not<br> travel read only a page.</p>
 			</div>
 		</div>
